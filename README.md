@@ -3,6 +3,15 @@
 一个 Windows 桌面小工具：**一键建立 SSH 隧道**，把云端服务器上仅监听
 `127.0.0.1:3080` 的 DSH（DeepSeek Harness）服务映射到本机，方便随时访问。
 
+## 直接下载使用（推荐，无需安装 Python）
+
+1. 打开 [Releases](https://github.com/ljh220300-eng/dsh-tunnel/releases) 页面，
+   下载最新版本的 `dsh-tunnel-vX.Y.Z.zip`。
+2. 解压后**双击 `DSH云服务一键隧道.exe`** 即可使用（Windows 10/11）。
+3. 按界面填写「服务器地址 / SSH 端口 / 用户名」，选择私钥，点「**一键启动隧道**」。
+
+> 配置与私钥会保存在 exe 同目录下，换电脑需重新填写。
+
 ## 原理
 
 等价于执行下面这条命令（由程序在后台自动完成）：
@@ -27,11 +36,13 @@ ssh -N -L 127.0.0.1:3080:127.0.0.1:3080 用户名@服务器IP -p 22 -i 私钥文
 
 ## 环境要求
 
-- Windows 10 / 11
-- Python 3.8+（[官网下载](https://www.python.org/downloads/)，安装时勾选
-  “Add python.exe to PATH”）
+- **直接使用 exe**：Windows 10 / 11，无需安装任何环境。
+- **从源码运行**：Python 3.8+（[官网下载](https://www.python.org/downloads/)，安装时勾选
+  “Add python.exe to PATH”）。
 
-## 快速开始
+## 从源码运行（开发者）
+
+> 普通用户请直接用上面的 exe，无需看本节。
 
 1. 双击运行 `run.bat`（首次会自动安装依赖 paramiko）。
 2. 填写“服务器地址、SSH 端口、用户名”。
